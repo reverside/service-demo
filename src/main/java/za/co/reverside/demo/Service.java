@@ -12,7 +12,7 @@ import java.util.ArrayList;
 @RestController
 public class Service {
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
    @RequestMapping(path = "api/books", method=RequestMethod.GET, produces="application/json")
    public List<Book> getBooks(){
    	  List<Book> books = new ArrayList<Book>();
@@ -52,7 +52,8 @@ public class Service {
       phone.add(new Phone("Nokia", "White", "1020.22", 8520));
 
       return phone;
-=======
+   }
+//=======
 	
    private List<Phone> phoneList = new ArrayList<Phone>();
    
@@ -61,34 +62,29 @@ public class Service {
    public List<Phone> getPhones(){
       System.out.println("Find All Phones");
       return this.phoneList;
->>>>>>> ea9d851c8247847635e4ac58a7417cbb0cfdc151
+//>>>>>>> ea9d851c8247847635e4ac58a7417cbb0cfdc151
    }
 
    //Creating a new phone item
    @RequestMapping(path = "api/phone", method= RequestMethod.POST, consumes="application/json")
    public void createPhone(@RequestBody Phone phone){
-<<<<<<< HEAD
+//<<<<<<< HEAD
       System.out.println("Received New Phone request :");
       System.out.println(phone.getName());
       System.out.println(phone.getColor());
       System.out.println(phone.getPrice());
       System.out.println(phone.getId());
-=======
+//=======
       System.out.println("Add New Phone");
       this.phoneList.add(phone);
->>>>>>> ea9d851c8247847635e4ac58a7417cbb0cfdc151
+//>>>>>>> ea9d851c8247847635e4ac58a7417cbb0cfdc151
    }
 
    //Searching for phone by id
    @RequestMapping(path="api/phone/{id}", method=RequestMethod.GET, produces="application/json")
-   public Phone searchPhone(@PathVariable("id") int id){
-      System.out.println("Search Phone with ID : " + id);
-          Phone phone = new Phone();
-          phone.setName("Huawie");
-          phone.setColor("Black");
-          phone.setPrice("2000");
-          phone.setId(id);
-
-          return phone;
+   public List<Phone> findPhone(@PathVariable("id") int id){
+      System.out.println("Phone found with ID : " + id);
+      System.out.println("Phone found!!!");
+      return this.phoneList;
    }
 }
