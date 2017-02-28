@@ -12,9 +12,6 @@ import java.util.ArrayList;
 @RestController
 public class Service {
 
-	
-
-
    @RequestMapping(path = "api/books", method=RequestMethod.GET, produces="application/json")
    public List<Book> getBooks(){
    	  List<Book> books = new ArrayList<Book>();
@@ -44,16 +41,16 @@ public class Service {
    }
 
    //Getting list of phones
-   @RequestMapping(path="api/phones", method=RequestMethod.GET, produces="application/json")
+   @RequestMapping(path="api/phone", method=RequestMethod.GET, produces="application/json")
    public List<Phone> getPhone(){
-      List<Phone> phones = new ArrayList<Phone>();
-      phones.add(new Phone("Huawie","Black","1000.00",2222));
-      phones.add(new Phone("iPhone 7", "White", "1090.22", 123));
-      phones.add(new Phone("Samsung", "Gold", "1000.22", 125));
-      phones.add(new Phone("Honeywell", "Black", "1060.22", 520));
-      phones.add(new Phone("Nokia", "White", "1020.22", 8520));
+      List<Phone> phone = new ArrayList<Phone>();
+      phone.add(new Phone("Huawie","Black","1000.00",2222));
+      phone.add(new Phone("iPhone 7", "White", "1090.22", 123));
+      phone.add(new Phone("Samsung", "Gold", "1000.22", 125));
+      phone.add(new Phone("Honeywell", "Black", "1060.22", 520));
+      phone.add(new Phone("Nokia", "White", "1020.22", 8520));
 
-      return phones;
+      return phone;
    }
 
    //Creating a new phone item
@@ -63,6 +60,7 @@ public class Service {
       System.out.println(phone.getName());
       System.out.println(phone.getColor());
       System.out.println(phone.getPrice());
+      System.out.println(phone.getId());
    }
 
    //Searching for phone by id
@@ -74,7 +72,7 @@ public class Service {
           phone.setColor("Black");
           phone.setPrice("2000");
           phone.setId(id);
-          
+
           return phone;
    }
 }
