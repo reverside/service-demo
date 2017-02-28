@@ -41,26 +41,34 @@ public class Service {
       System.out.println(book.getAuthor());
    }
 
-   //Getting list of phones
-   @RequestMapping(path="api/phone", method=RequestMethod.GET, produces="application/json")
-   public List<Phone> getPhone(){
-      List<Phone> phone = new ArrayList<Phone>();
-      phone.add(new Phone("Huawie","Black","1000.00",2222));
-      phone.add(new Phone("iPhone 7", "White", "1090.22", 123));
-      phone.add(new Phone("Samsung", "Gold", "1000.22", 125));
-      phone.add(new Phone("Honeywell", "Black", "1060.22", 520));
-      phone.add(new Phone("Nokia", "White", "1020.22", 8520));
-
-      return phone;
-   }
+   
 
 	
    private List<Phone> phoneList = new ArrayList<Phone>();
+
+   //Getting list of phones
+   @RequestMapping(path="api/phone", method=RequestMethod.GET, produces="application/json")
+   public List<Phone> getPhone(){
+      
+      phoneList.add(new Phone("Huawie","Black","1000.00",2222));
+      phoneList.add(new Phone("iPhone 7", "White", "1090.22", 123));
+      phoneList.add(new Phone("Samsung", "Gold", "1000.22", 125));
+      phoneList.add(new Phone("Honeywell", "Black", "1060.22", 520));
+      phoneList.add(new Phone("Nokia", "White", "1020.22", 8520));
+
+      return phoneList;
+   }
    
    //Getting list of phones
    @RequestMapping(path="api/phones", method=RequestMethod.GET, produces="application/json")
    public List<Phone> getPhones(){
-      System.out.println("Find All Phones");
+
+      for(int i = 0; i < phoneList.size(); i++){
+         System.out.println(phoneList.get(i).getName());
+      }
+      //System.out.println("Find All Phones");
+      
+
       return this.phoneList;
 
    }
@@ -81,10 +89,20 @@ public class Service {
    }
 
    //Searching for phone by id
+  // @RequestMapping(path="api/phone/{id}", method=RequestMethod.GET, produces="application/json")
+  // public List<Phone> findPhone(@PathVariable("id") int id){
+  //    System.out.println("Phone found with ID : " + id);
+  //    System.out.println("Phone found!!!");
+  //    return this.phoneList(id);
+//}
+
+
+//Finding one phone
    @RequestMapping(path="api/phone/{id}", method=RequestMethod.GET, produces="application/json")
    public List<Phone> findPhone(@PathVariable("id") int id){
-      System.out.println("Phone found with ID : " + id);
-      System.out.println("Phone found!!!");
-      return this.phoneList;
+
+         System.out.println("Inside for loop!!");
+      return phoneList;
    }
+
 }
