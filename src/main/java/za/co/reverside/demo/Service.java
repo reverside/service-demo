@@ -37,13 +37,44 @@ public class Service {
 
    @RequestMapping(path = "api/books", method= RequestMethod.POST, consumes="application/json")
    public void createBook(@RequestBody Book book){
-   	  System.out.println("Received New Book Request :");
+   	System.out.println("Received New Book Request :");
       System.out.println(book.getId());
       System.out.println(book.getTitle());
       System.out.println(book.getAuthor());
    }
 
-  
+   //Getting list of phones
+   @RequestMapping(path="api/phones", method=RequestMethod.GET, produces="application/json")
+   public List<Phone> getPhone(){
+      List<Phone> phones = new ArrayList<Phone>();
+      phones.add(new Phone("Huawie","Black","1000.00",2222));
+      phones.add(new Phone("iPhone 7", "White", "1090.22", 123));
+      phones.add(new Phone("Samsung", "Gold", "1000.22", 125));
+      phones.add(new Phone("Honeywell", "Black", "1060.22", 520));
+      phones.add(new Phone("Nokia", "White", "1020.22", 8520));
 
+      return phones;
+   }
 
+   //Creating a new phone item
+   @RequestMapping(path = "api/phone", method= RequestMethod.POST, consumes="application/json")
+   public void createPhone(@RequestBody Phone phone){
+      System.out.println("Received New Phone request :");
+      System.out.println(phone.getName());
+      System.out.println(phone.getColor());
+      System.out.println(phone.getPrice());
+   }
+
+   //Searching for phone by id
+   @RequestMapping(path="api/phone/{id}", method=RequestMethod.GET, produces="application/json")
+   public Phone searchPhone(@PathVariable("id") int id){
+      System.out.println("Search Phone with ID : " + id);
+          Phone phone = new Phone();
+          phone.setName("Huawie");
+          phone.setColor("Black");
+          phone.setPrice("2000");
+          phone.setId(id);
+          
+          return phone;
+   }
 }
