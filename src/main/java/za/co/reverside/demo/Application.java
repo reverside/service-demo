@@ -2,8 +2,10 @@ package za.co.reverside.demo;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.SpringApplication;
+import com.mangofactory.swagger.plugin.EnableSwagger;
 
 @SpringBootApplication
+@EnableSwagger
 public class Application{
 
 
