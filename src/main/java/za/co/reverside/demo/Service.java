@@ -38,7 +38,18 @@ private	List<Car> cars = new ArrayList<Car>();
 				car = aCar;
 		}
 		return car;
+	}
 
+	@RequestMapping(path="api/cars/{id}", method=RequestMethod.DELETE)
+	public void deleteOne(@PathVariable("id") String id){
+		
+		Car car = null;
+
+		for(Car aCar: cars){
+			if(aCar.getId().equals(id))
+				car = aCar;
+		}
+		this.cars.remove(car);
 	}
 
 }
