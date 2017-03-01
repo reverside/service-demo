@@ -1,11 +1,10 @@
 package za.co.reverside.demo;
 
-public class Book {
+
+public class Book{
 
 	private String id;
-
 	private String title;
-
 	private String author;
 
 	public Book(){}
@@ -15,13 +14,13 @@ public class Book {
 		this.title = title;
 		this.author = author;
 	}
-
+	
 	public String getId(){
 		return this.id;
 	}
 
-	public void setId(String id){
-		this.id= id;
+	public void setId (String id){
+		this.id = id;
 	}
 
 	public String getTitle(){
