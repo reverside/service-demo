@@ -2,14 +2,14 @@ package za.co.reverside.demo;
 
 public class Car{
 
-	private int id;
+	private String id;
 	private int engineSize;
 	private String name;
 	private String color;
 
 	public Car(){}
 
-	public Car(int id, int engineSize, String name, String color){
+	public Car(String id, int engineSize, String name, String color){
 		this.id = id;
 		this.engineSize = engineSize;
 		this.name = name;
@@ -18,10 +18,10 @@ public class Car{
 	}
 
 
-	public int getId(){
+	public String getId(){
 		return this.id;
 	}
-	public void setId(int id){
+	public void setId(String id){
 		this.id = id;
 	}
 	public int getEngineSize(){
