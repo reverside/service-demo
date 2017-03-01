@@ -52,4 +52,19 @@ private	List<Car> cars = new ArrayList<Car>();
 		this.cars.remove(car);
 	}
 
+	@RequestMapping(path="api/cars/{id}", method=RequestMethod.PUT, produces="application/json")
+	public void updateOne(@RequestBody Car car, @PathVariable("id") String id){
+
+		for(Car aCar: cars){
+			if(aCar.getId().equals(aCar.getId())){
+				car = aCar;
+				int idup = Integer.parseInt(id)
+				this.cars.set(idup,car);
+
+			}
+			
+		}
+		
+	}
+
 }
