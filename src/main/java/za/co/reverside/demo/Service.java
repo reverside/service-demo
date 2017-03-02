@@ -57,13 +57,9 @@ private	List<Car> cars = new ArrayList<Car>();
 
 		for(Car aCar: cars){
 			if(aCar.getId().equals(id)){
-				String newEngineSize = car.getEngineSize();
-				String newName = car.getName();
-				String newColor = car.getColor();
-
-				aCar.setEngineSize(newEngineSize);
-				aCar.setName(newName);
-				aCar.setColor(newColor);
+				aCar.setEngineSize(car.getEngineSize());
+				aCar.setName(car.getName());
+				aCar.setColor(car.getColor());
 			}
 		}
 		
