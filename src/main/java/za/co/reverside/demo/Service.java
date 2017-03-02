@@ -58,7 +58,7 @@ private	List<Car> cars = new ArrayList<Car>();
 		for(Car aCar: cars){
 			if(aCar.getId().equals(id)){
 				car = aCar;
-				this.cars.set(id,car);
+				this.cars.set(Integer.parseInt(id),car);
 			}
 			
 		}
