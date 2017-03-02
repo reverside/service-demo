@@ -56,11 +56,9 @@ private	List<Car> cars = new ArrayList<Car>();
 	public void updateOne(@RequestBody Car car, @PathVariable("id") String id){
 
 		for(Car aCar: cars){
-			if(aCar.getId().equals(aCar.getId())){
+			if(aCar.getId().equals(id)){
 				car = aCar;
-				int idup = Integer.parseInt(id)
-				this.cars.set(idup,car);
-
+				this.cars.set(Integer.parseInt(id),car);
 			}
 			
 		}
