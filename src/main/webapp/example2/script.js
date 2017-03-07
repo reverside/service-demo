@@ -5,7 +5,16 @@
  */
 
 
-var app = angular.module('HelloWorldApp', [])
-   app.controller('HelloWorldController', function($scope) {
-       $scope.greeting = "Hello World";
+var app = angular.module('app', [])
+   
+   app.controller('appCtrl', function($scope) {
+      
+      $scope.newUser = {};
+      
+      $scope.users = [];
+      
+      $scope.addUser = function(){
+         $scope.users.push($scope.newUser);
+      };
+      
 });
