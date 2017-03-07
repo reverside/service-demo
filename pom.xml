@@ -20,7 +20,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- MongoDB Depency-->
+        <!-- MongoDB Dependency-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
@@ -32,7 +32,14 @@
             <version>2.0.0</version>
         </dependency>
 
-        <!-- Swagger Depedency -->
+
+        <!-- Lombok dependency -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.6</version>
+        </dependency>
+        <!-- Swagger Dependency -->
 
         <dependency>
             <groupId>com.mangofactory</groupId>
