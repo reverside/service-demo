@@ -38,8 +38,10 @@ public class Service{
 	public void updateUser(@PathVariable String userId, @RequestBody User request){
 		User user = this.userRepository.findOne(userId);
 		if(user != null){
-			user.setName(request.getName());
-			user.setSurname(request.getSurname());
+			user.setFirstname(request.getFirstname());
+			user.setLastname(request.getLastname());
+			user.setEmail(request.getEmail());
+			user.setPhone(request.getPhone());
 			user.setPassword(request.getPassword());
 			userRepository.save(user);
 		}
