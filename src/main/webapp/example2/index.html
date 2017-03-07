@@ -1,29 +1,24 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+<html ng-app="app">
     <head>
         <title>Input fields</title>
-    <sript src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></sript> 
+        <sript src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></sript> 
 </head> 
 <body ng-controller="appCtrl">
     <form>
         <div>
-        Username : <input type="text" name="firstName" ng-model="user.firstName"/>
+        Username : <input type="text" name="firstName" ng-model="newUser.firstName"/>
         </div>
         <br/>
         <div>
-        Last Name : <input type="text" name="lastName" ng-model="user.lastName"/>
+        Last Name : <input type="text" name="lastName" ng-model="newUser.lastName"/>
         </div>
         <br/>
         <div>
-        Password : <input type="password" name="password" ng-model="user.password"/>
+        Password : <input type="password" name="password" ng-model="newUser.password"/>
         </div>
         <div>
-            <button ng-click="addUser()">Add User</button>
+            <button ng-click="addNewUser()">Add User</button>
         </div>
     </form>
 
