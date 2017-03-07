@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
-import za.co.reverside.demo.xyz.UserRepository;
+import za.co.reverside.demo.repository.UserRepository;
 import za.co.reverside.demo.model.User;
 
 @RestController
