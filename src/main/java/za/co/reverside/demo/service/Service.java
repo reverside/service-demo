@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
-import za.co.reverside.demo.repository.UserRepository;
+import za.co.reverside.demo.xyz.UserRepository;
 import za.co.reverside.demo.model.User;
 
 @RestController
@@ -47,5 +47,20 @@ public class Service{
 			throw new RuntimeException("NO such User exists");
 		}
 	}
+	@RequestMapping(path="api/users/{userId}", method=RequestMethod.GET, produces="application/json")
+	public User findUser(@PathVariable("userId") String userId){
+		return this.userRepository.findOne(userId);
+	}
+	@RequestMapping(path="api/users/{userId}", method=RequestMethod.DELETE)
+	public void deleteUser(@PathVariable("userId") String userId){
+		User user = this.userRepository.findOne(userId);
+		if(user != null){
+			userRepository.delete(userId);
+		}
+		else {
+			throw new RuntimeException("User not found");
+		}
+	} 
+
 
 }
