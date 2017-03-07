@@ -1,4 +1,4 @@
-package za.co.reverside.demo;
+package za.co.reverside.demo.service;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
