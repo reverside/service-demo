@@ -1,8 +1,8 @@
-package za.co.reverside.demo;
+package za.co.reverside.demo.service;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
+
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import za.co.reverside.demo.repository.UserRepository;
 import za.co.reverside.demo.model.User;
-=======
->>>>>>> 2735cc9739699998d29f50c5e6a1209094e82d80
 
 @RestController
 public class Service{
@@ -34,6 +32,20 @@ public class Service{
 	@RequestMapping(path="api/users", method=RequestMethod.GET, produces="application/json")
 	public List<User> findUsers(){
 		return this.userRepository.findAll();
+	}
+
+	@RequestMapping(path="api/users/{userId}", method=RequestMethod.PUT, consumes="application/json")
+	public void updateUser(@PathVariable String userId, @RequestBody User request){
+		User user = this.userRepository.findOne(userId);
+		if(user != null){
+			user.setName(request.getName());
+			user.setSurname(request.getSurname());
+			user.setPassword(request.getPassword());
+			userRepository.save(user);
+		}
+		else {
+			throw new RuntimeException("NO such User exists");
+		}
 	}
 
 }
