@@ -13,7 +13,7 @@ var app = angular.module('app', [])
       
       $scope.users = [];
       
-      $scope.addUser = function(){
+      $scope.addNewUser = function(){
          $scope.users.push($scope.newUser);
       };
       
