@@ -23,6 +23,14 @@ public class Service{
 		return "Hello world";
 	}
 	
-	
+	@RequestMapping(path="api/users", method=RequestMethod.POST, consumes="application/json")
+	public void createUser(@RequestBody User user){
+		this.userRepository.insert(user);
+	}
+
+	@RequestMapping(path="api/users", method=RequestMethod.GET, produces="application/json")
+	public List<User> findUsers(){
+		return this.userRepository.findAll();
+	}
 
 }
