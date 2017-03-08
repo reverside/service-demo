@@ -58,30 +58,35 @@ public class UserService {
             throw new RuntimeException("User not found");
         }
     }
-
-    @RequestMapping(path = "api/users/surname/{lastName}", method = RequestMethod.GET, produces = "application/json")
-    public User findBySurname(@PathVariable("lastName") String lastName) {
-
-        User user = null;
-        for (User aUser: userRepository.findAll()){
-        
-            if(aUser.getLastname().equals(lastName)){
-             user = aUser;
-            }
-        }
-        return user;
-    }
     
     @RequestMapping(path = "api/users/lastname/{lastName}", method = RequestMethod.GET, produces = "application/json")
-    public User findByLastName(@PathVariable("lastName") String lastName) {
+    public List<User> findByLastName(@PathVariable("lastName") String lastName) {
         
-        List<User> response = new ArrayList<User>(); // Create an empty list called response
+        List<User> response = new ArrayList<User>();
         
-        for (User user: userRepository.findAll()) { // Lopp Through All Users in the  db 
+        for (User user: userRepository.findAll()) {
             
-            if(user.getLastname().equals(lastName)) { // check for the condition 
+            if(user.getLastname().equals(lastName)) {
                 
-                response.add(user); // add user to the list called response
+                response.add(user);
+            
+            }
+            
+        }
+        
+        return response;
+    }
+    
+    @RequestMapping(path = "api/users/email/like/{email}", method = RequestMethod.GET, produces = "application/json")
+    public List<User> findByEmail(@PathVariable("email") String email) {
+        
+        List<User> response = new ArrayList<User>(); 
+        
+        for (User user: userRepository.findAll()) {
+            
+            if(user.getEmail().contains(email)) {
+                
+                response.add(user);
             
             }
             
