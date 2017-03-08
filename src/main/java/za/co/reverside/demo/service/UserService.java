@@ -60,8 +60,8 @@ public class UserService{
 	} 
         
         @RequestMapping(path="api/users/surname/{lastName}", method = RequestMethod.GET, produces = "application/json")
-        public List<User> findBySurname(@PathVariable("lastName") String lastName){
-            return this.userRepository.findAll();
+        public User findBySurname(@PathVariable("lastName") String lastName){
+            return userRepository.findOne(lastName);
         }
 
 }
