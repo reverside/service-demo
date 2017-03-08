@@ -84,15 +84,13 @@ public class UserService {
         
         for (User user: userRepository.findAll()) {
             
-            if(user.getEmail().contains(email)) {
-                
+            if(user.getEmail().contains("@"+email+".")) {
                 response.add(user);
-            
             }
             
         }
         
-        return response; // return response, which is a list of users
+        return response;
     }
 
 }
