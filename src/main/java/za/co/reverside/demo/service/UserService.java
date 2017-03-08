@@ -59,9 +59,4 @@ public class UserService{
 		}
 	} 
         
-        @RequestMapping(path="api/users/surname/{lastName}", method = RequestMethod.GET, produces = "application/json")
-        public User findBySurname(@PathVariable("lastName") String lastName){
-            return userRepository.findOne(lastName);
-        }
-
 }
