@@ -1,4 +1,4 @@
-package za.co.reverside.demo.repository;
+package za.co.reverside.demo.xyz;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
