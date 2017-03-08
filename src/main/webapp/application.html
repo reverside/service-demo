@@ -9,14 +9,26 @@
     <br>
     Full Name: {{firstName + " " + lastName}}
     
-    <button ng-click="findAllProducts()">All Products</button>
+    <div>
+        <h1>Find All Products</h1>
+        <button ng-click="findAllProducts()">All Products</button>
     
-    <div ng-repeat="product in products">
-        <hr>
-        <div>{{product.name}}</div>
-        <div>{{product.decription}}</div>
-        <hr>
+        <div ng-repeat="product in products">
+            <hr>
+            <div>{{product.name}}</div>
+            <div>{{product.decription}}</div>
+            <hr>
+        </div>
     </div>
+    
+    
+    <div>
+        
+        
+    </div>
+    
+    
+    
 
 </div>
     <script src="js/application.js"></script>    
