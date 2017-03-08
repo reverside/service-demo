@@ -71,5 +71,23 @@ public class UserService {
         }
         return user;
     }
+    
+    @RequestMapping(path = "api/users/lastname/{lastName}", method = RequestMethod.GET, produces = "application/json")
+    public User findByLastName(@PathVariable("lastName") String lastName) {
+        
+        List<User> response = new ArrayList<User>(); // Create an empty list called response
+        
+        for (User user: userRepository.findAll()) { // Lopp Through All Users in the  db 
+            
+            if(user.getLastname().equals(lastName)) { // check for the condition 
+                
+                response.add(user); // add user to the list called response
+            
+            }
+            
+        }
+        
+        return response; // return response, which is a list of users
+    }
 
 }
