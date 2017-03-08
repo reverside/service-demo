@@ -4,16 +4,21 @@
  * and open the template in the editor.
  */
 
-var app = angular.module('app', [])
+var app = angular.module('app', []);
    
    app.controller('appCtrl', function($scope) {
       
       $scope.newUser = {};
-      
+      $scope.User = {};
       $scope.users = [];
+      
       
       $scope.addNewUser = function(){
          $scope.users.push($scope.newUser);
+      };
+      
+      $scope.allUsers = function(){
+         $scope.users.push($scope.User);
       };
       
 });

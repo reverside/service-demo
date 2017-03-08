@@ -5,31 +5,39 @@
     <sript src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></sript> 
 </head> 
 
-<body>
-    <form ng-app="app" ng-controller="UserController" name="form1">
+<form ng-app="app" name="form1">
 
+    <!-- Controller is found in the script.js file-->
+    <body ng-controller="appCtrl">
+        <form>
+            <div>
+                Username : <input type="text" name="firstName" ng-model="newUser.firstName"/>
+            </div>
+            <br/>
 
-        <!-- Controller is found in the script.js file-->
-        <body ng-controller="appCtrl">
-            <form>
-                <div>
-                    Username : <input type="text" name="firstName" ng-model="newUser.firstName"/>
-                </div>
-                <br/>
+            <div>
+                Last Name : <input type="text" name="lastName" ng-model="newUser.lastName"/>
+            </div>
+            <br/>
 
-                <div>
-                    Last Name : <input type="text" name="lastName" ng-model="newUser.lastName"/>
-                </div>
-                <br/>
+            <div>
+                Password : <input type="password" name="password" ng-model="newUser.password"/>
+            </div>
+            <div>
+                <button ng-click="addNewUser()">Add User</button>
+            </div>
+            <!--Method call to allUsers() in script.js -->
+            <div>
+                <button ng-click="allUsers()">List Of Users</button>
+            </div>
+            <div>
+                <!--Attempting to bind newUser to be displayed -->
+                <p ng-bind="User.firstName"></p>
+                <p ng-bind="User.lastName"></p>
+                <p ng-bind="User.password"></p>
+            </div>
+        </form>
 
-                <div>
-                    Password : <input type="password" name="password" ng-model="newUser.password"/>
-                </div>
-                <div>
-                    <button ng-click="addNewUser()">Add User</button>
-                </div>
-            </form>
-
-            <script src="script.js"></script>
-        </body>
+        <script src="script.js"></script>
+    </body>
 </html>
