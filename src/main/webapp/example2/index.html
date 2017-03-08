@@ -10,17 +10,20 @@ and open the template in the editor.
     <sript src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></sript> 
 </head> 
 <body>
-    <form>
+    <form ng-app="app" ng-controller="UserController" name="form1">
+        
         <div>
-        Username : <input type="text" name="userName"/>
+        Username : <input ng-model="userName"/>
         </div>
         <br/>
+        
         <div>
-        Last Name : <input type="text" name="lastName"/>
+        Last Name : <input ng-model="lastName"/>
         </div>
         <br/>
+        
         <div>
-        Password : <input type="password" name="password"/>
+        Password : <input type="password" ng-model="password"/>
         </div>
     </form>
 

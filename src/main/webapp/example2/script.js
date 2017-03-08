@@ -5,7 +5,9 @@
  */
 
 
-var app = angular.module('HelloWorldApp', [])
-   app.controller('HelloWorldController', function($scope) {
-       $scope.greeting = "Hello World";
+var app = angular.module('User', [])
+   app.controller('UserController', function($scope) {
+       $scope.userName = "Moses";
+       $scope.lastName = "Mathebula";
+       $scope.password = "1234";
 });
