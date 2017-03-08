@@ -12,9 +12,13 @@ public class User {
     @Id
     private String id;
 
-    private String name;
+    private String firstname;
 
-    private String surname;
+    private String lastname;
+
+    private String email;
+
+    private String phone;
 
     private String password;
 
