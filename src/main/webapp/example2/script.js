@@ -7,9 +7,9 @@
 var app = angular.module('app', []);
    
    app.controller('appCtrl', function($scope) {
-      
+       
       $scope.newUser = {};
-      $scope.User = {};
+      
       $scope.users = [];
       
       
@@ -17,8 +17,13 @@ var app = angular.module('app', []);
          $scope.users.push($scope.newUser);
       };
       
-      $scope.allUsers = function(){
-         $scope.users.push($scope.User);
+      $scope.allUsers = function(newUser){
+        if(!(newUser === undefined || newUser === '')){
+            $scope.users.call(newUser);
+        }  else{
+            $scope.NoItemError = 'Please enter a user';
+        }
+         //$scope.users.push($scope.User);
       };
       
 });

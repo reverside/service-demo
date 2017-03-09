@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="app">
+<html>
     <head>
         <title>Input fields</title>
     <sript src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></sript> 
@@ -24,19 +24,20 @@
                 Password : <input type="password" name="password" ng-model="newUser.password"/>
             </div>
             <div>
-                <button ng-click="addNewUser()">Add User</button>
+                <button ng-click='addNewUser()'>Add User</button>
             </div>
+            
             <!--Method call to allUsers() in script.js -->
             <div>
-                <button ng-click="allUsers()">List Of Users</button>
-            </div>
-            <div>
-                <!--Attempting to bind newUser to be displayed -->
-                <p ng-bind="User.firstName"></p>
-                <p ng-bind="User.lastName"></p>
-                <p ng-bind="User.password"></p>
+
+                <button ng-click="allUsers(newUser)">List Of Users</button>
+
+                <p ng-model="newUser.firstName"></p>
+                <p ng-model="newUser.lastName"></p>
+
             </div>
         </form>
+
 
         <script src="script.js"></script>
     </body>
