@@ -88,10 +88,10 @@ public class UserService {
                 response.add(user);
             }
             
-        }
-        
+        }        
         return response;
     }
+    
     @RequestMapping(path = "api/users/firstname/like/name/{name}", method = RequestMethod.GET, produces = "application/json")
     public List<User> findByName(@PathVariable("name") String name) {
         
@@ -99,12 +99,11 @@ public class UserService {
         
         for (User user: userRepository.findAll()) {
             
-            if(user.getFirstname().startsWith(name)) {
+            if(user.getFirstname().toLowerCase().startsWith(name.toLowerCase())) {
                 response.add(user);
             }
             
-        }
-        
+        }        
         return response;
     }
 
