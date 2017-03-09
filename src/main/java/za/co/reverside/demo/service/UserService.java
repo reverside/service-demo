@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import za.co.reverside.demo.repository.UserRepository;
 import za.co.reverside.demo.model.User;
+import za.co.reverside.demo.schema.UserQuery;
 
 @RestController
 public class UserService {
