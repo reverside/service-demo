@@ -1,11 +1,7 @@
+package za.co.reverside.demo.schema;
 
-
-package za.co.reverside.demo.model;
-
-import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-@Data
 public class UserQuery {
   
     @Id
