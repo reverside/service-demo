@@ -14,16 +14,11 @@ import za.co.reverside.demo.repository.UserRepository;
 import za.co.reverside.demo.model.User;
 
 @RestController
-public class Service{
+public class UserService{
 
 	@Autowired
 	private UserRepository userRepository;
-
-	@RequestMapping(value="api/hello")
-	public String hello(){
-		return "Hello world";
-	}
-	
+        
 	@RequestMapping(path="api/users", method=RequestMethod.POST, consumes="application/json")
 	public void createUser(@RequestBody User user){
 		this.userRepository.insert(user);

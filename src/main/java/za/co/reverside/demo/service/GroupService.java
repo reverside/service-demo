@@ -11,16 +11,10 @@ import za.co.reverside.demo.model.Group;
 import za.co.reverside.demo.repository.GroupRepository;
 
 @RestController
-public class GroupServices {
+public class GroupService {
     
     @Autowired
     private GroupRepository groupRepository;
-    
-    
-    @RequestMapping(path = "api/hello/group")
-    public String hello(){
-        return "Hello";
-    }
     
     @RequestMapping(path="api/groups", method = RequestMethod.POST, consumes = "application/json")
     public void createGroup(@RequestBody Group group){
