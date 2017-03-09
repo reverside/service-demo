@@ -59,7 +59,7 @@ public class UserService{
 		}
 	} 
         
-        @RequestMapping(path="api/users/{lastName}", method = RequestMethod.GET, produces = "application/json")
+        @RequestMapping(path="api/users/surname/{lastName}", method = RequestMethod.GET, produces = "application/json")
         public List<User> findBySurname(@PathVariable("lastName") String lastName){
             return null;
         }
