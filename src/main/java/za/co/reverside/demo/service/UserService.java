@@ -26,8 +26,13 @@ public class UserService {
     }
 
     @RequestMapping(path = "api/users", method = RequestMethod.GET, produces = "application/json")
-    public List<User> findUsers() {
-        return this.userRepository.findAll();
+    public List<UserQuery> findUsers() {
+        List<User> user = this.userRepository.findAll();
+        
+        List<UserQuery> userQuery = (List<UserQuery>) (UserQuery) user;
+        
+        return userQuery;
+                
     }
 
     @RequestMapping(path = "api/users/{userId}", method = RequestMethod.PUT, consumes = "application/json")
