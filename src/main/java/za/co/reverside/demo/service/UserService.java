@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import za.co.reverside.demo.repository.UserRepository;
 import za.co.reverside.demo.model.User;
@@ -26,13 +27,8 @@ public class UserService {
     }
 
     @RequestMapping(path = "api/users", method = RequestMethod.GET, produces = "application/json")
-    public List<UserQuery> findUsers() {
-        List<User> user = this.userRepository.findAll();
-        
-        List<UserQuery> userQuery = (List<UserQuery>) (UserQuery) user;
-        
-        return userQuery;
-                
+    public List<User> findUsers() {
+        return this.userRepository.findAll();
     }
 
     @RequestMapping(path = "api/users/{userId}", method = RequestMethod.PUT, consumes = "application/json")
@@ -112,5 +108,19 @@ public class UserService {
         }        
         return response;
     }
-
+    // Service created for FindUsersQuery
+    @RequestMapping(path = "api/users/userquery", method = RequestMethod.GET, produces = "application/json")
+    public List<UserQuery> findUsersQuery() {
+        
+        Iterator itr = this.userRepository.findAll().iterator();
+        
+        List<UserQuery> userQlist = new ArrayList<UserQuery>();
+        
+        while(itr.hasNext()){
+            UserQuery userQuery =(UserQuery)itr.next();
+            userQlist.add(userQuery);
+        }
+        return userQlist;
+    }
+    
 }
