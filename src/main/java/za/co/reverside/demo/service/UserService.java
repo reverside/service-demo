@@ -92,5 +92,20 @@ public class UserService {
         
         return response;
     }
+    @RequestMapping(path = "api/users/firstname/like/name/{name}", method = RequestMethod.GET, produces = "application/json")
+    public List<User> findByName(@PathVariable("name") String name) {
+        
+        List<User> response = new ArrayList<User>(); 
+        
+        for (User user: userRepository.findAll()) {
+            
+            if(user.getFirstname().startsWith(name)) {
+                response.add(user);
+            }
+            
+        }
+        
+        return response;
+    }
 
 }
