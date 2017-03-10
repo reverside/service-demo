@@ -26,9 +26,26 @@ public class UserService {
         this.userRepository.insert(user);
     }
 
+    /*
     @RequestMapping(path = "api/users", method = RequestMethod.GET, produces = "application/json")
     public List<User> findUsers() {
         return this.userRepository.findAll();
+    }*/
+    
+    @RequestMapping(path = "api/users", method = RequestMethod.GET, produces = "application/json")
+    public List<UserQuery> findUsers() {
+        List<UserQuery> response = new ArrayList<UserQuery>();
+        List<User> users = this.userRepository.findAll();
+        for(User user : users){
+            UserQuery anUser = new UserQuery();
+            anUser.setId(user.getId());
+            anUser.setFirstName(user.getFirstName());
+            anUser.setLastName(user.getLastName());
+            anUser.setEmail(user.getEmail());
+            anUser.setPhone(user.getPhone());
+            response.add(anUser);
+        }    
+        return response;
     }
 
     @RequestMapping(path = "api/users/{userId}", method = RequestMethod.PUT, consumes = "application/json")
@@ -108,7 +125,8 @@ public class UserService {
         }        
         return response;
     }
-    // Service created for FindUsersQuery
+    
+    /* Service created for FindUsersQuery
     @RequestMapping(path = "api/users/userquery", method = RequestMethod.GET, produces = "application/json")
     public List<UserQuery> findUsersQuery() {
         
@@ -121,6 +139,6 @@ public class UserService {
             userQlist.add(userQuery);
         }
         return userQlist;
-    }
+    } */
     
 }
